@@ -1,0 +1,28 @@
+@import "./base.scss";
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  color: $fc1;
+}
+
+body {
+  font-size: $fs1;
+  overflow-x: hidden;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+p {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  line-height: 1.5em;
+}

@@ -1,0 +1,113 @@
+//font color
+$fc1: #303133;
+$fc2: #606266;
+$fc3: #909399;
+$fc4: #C0C4CC;
+
+.fc1 {
+  color: $fc1;
+}
+.fc2 {
+  color: $fc2;
+}
+.fc3 {
+  color: $fc3;
+}
+.fc4 {
+  color: $fc4;
+}
+
+
+
+// border color
+$bc1: #DCDFE6;
+$bc2: #E4E7ED;
+$bc3: #EBEEF5;
+$bc4: #F2F6FC;
+
+.bc1 {
+  color: $bc1;
+}
+.bc2 {
+  color: $bc2;
+}
+.bc3 {
+  color: $bc3;
+}
+.bc4 {
+  color: $bc4;
+}
+
+
+
+// background color
+$bgc1: #FFFFFF;
+$bgc2: #fafbfc;
+$bgc3: #f6f8fa;
+$bgc4: #25292e;
+
+// hover background color
+$bgch: #f6f8fa;
+
+.bgc1 {
+  color: $bgc1;
+}
+.bgc2 {
+  color: $bgc2;
+}
+.bgc3 {
+  color: $bgc3;
+}
+.bgc4 {
+  color: $bgc4;
+}
+.bgch {
+  color: $bgch;
+}
+
+
+
+$blue: #409EFF;
+$red: #F56C6C;
+$green: #67C23A;
+$gray: #909399;
+$yellow: #E6A23C;
+$white: #FFFFFF;
+
+.blue {
+  color: $blue;
+}
+.red {
+  color: $red;
+}
+.green {
+  color: $green;
+}
+.gray {
+  color: $gray;
+}
+.yellow {
+  color: $yellow;
+}
+.white {
+  color: $white;
+}
+
+
+$fs0: 12px;
+$fs1: 14px;
+$fs2: 22px;
+$fs3: 28px;
+
+.fs0 {
+  font-size: 12px;
+}
+.fs1 {
+  font-size: 14px;
+}
+.fs2 {
+  font-size: 22px;
+}
+.fs3 {
+  font-size: 28px;
+}
