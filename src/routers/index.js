@@ -17,6 +17,10 @@ const routes = [
     ],
   },
   {
+    path: "/testApi",
+    component: () => import("@/views/testApi.vue"),
+  },
+  {
     path: "/sudoku",
     redirect: "/sudoku/index",
     component: Layout,

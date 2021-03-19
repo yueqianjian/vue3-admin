@@ -1,14 +1,11 @@
 <template>
-  <div class="sudoku">
+  <div class="sudoku y aic">
     <div class="grid">
-      <div v-for="x in size ** 2" :key="x">
-        <div
-          class="cell x1 aic"
-          :class="{ active: SDMap[`${x}-${y}`].num }"
-          v-for="y in size ** 2"
-          :key="y"
-        >
-          {{ (SDMap[`${x}-${y}`] && SDMap[`${x}-${y}`].num) || `${x}-${y}` }}
+      <div v-for="x in size ** 2" :key="x" :class="{ xline: !(x % size) }">
+        <div v-for="y in size ** 2" :key="y" :class="{ yline: !(y % size) }">
+          <div class="cell x1 aic" :class="{ active: SDMap[`${x}-${y}`].num }">
+            {{ (SDMap[`${x}-${y}`] && SDMap[`${x}-${y}`].num) || `${x}-${y}` }}
+          </div>
         </div>
       </div>
     </div>
@@ -25,7 +22,7 @@ export default {
   data() {
     return {
       SDMap: {},
-      size: 4,
+      size: 3,
     };
   },
   created() {
@@ -174,18 +171,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$bdc: #67c23a;
 .sudoku {
   .grid {
     margin-bottom: 50px;
     display: flex;
+    border-top: 1px solid $bdc;
+    border-left: 1px solid $bdc;
+    .xline {
+      border-right: 1px solid $bdc;
+    }
+    .yline {
+      border-bottom: 1px solid $bdc;
+    }
     .cell {
       width: 50px;
       height: 50px;
-      border: 1px solid #cccccc;
       &.active {
         background: red;
         color: #ffffff;
-        border: 1px solid red;
       }
     }
   }
