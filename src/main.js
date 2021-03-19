@@ -8,10 +8,12 @@ import directives from "./directives";
 import plugins from "./plugins";
 import store from "./store";
 import App from "./App.vue";
+import api from "./api";
 
 const app = createApp(App);
 
 app.config.globalProperties.h = h;
+app.config.globalProperties.$api = api;
 
 for (let el of directives) {
   const { name, func } = el;

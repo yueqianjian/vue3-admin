@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { getUserList, eidtUser, uploadFile } from "@/api/user";
+// import { getUserList, eidtUser, uploadFile } from "@/api/user";
 export default {
   data() {
     return {
@@ -15,16 +15,18 @@ export default {
   },
   methods: {
     testApi() {
-      this.uploadFile();
+      this.eidtUser();
     },
     getFile(e) {
       this.vfile = e.target.files[0];
     },
     async getUserList() {
+      const { getUserList } = this.$api.user;
       const res = await getUserList();
       console.log("res", res);
     },
     async uploadFile() {
+      const { uploadFile } = this.$api.user;
       let formData = new FormData();
       formData.append("username", "Groucho");
       formData.append("accountnum", 123456);
@@ -36,6 +38,7 @@ export default {
     },
 
     async eidtUser() {
+      const { eidtUser } = this.$api.user;
       let query = {
         a: 1,
         b: {
