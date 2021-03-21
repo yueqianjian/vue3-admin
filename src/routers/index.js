@@ -17,6 +17,10 @@ const routes = [
     ],
   },
   {
+    path: "/login",
+    component: () => import("@/views/login.vue"),
+  },
+  {
     path: "/testApi",
     component: () => import("@/views/testApi.vue"),
   },

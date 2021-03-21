@@ -9,12 +9,15 @@ import plugins from "./plugins";
 import store from "./store";
 import App from "./App.vue";
 import api from "./api";
+import rules from "./utils/rules";
 
 const app = createApp(App);
 
 app.config.globalProperties.h = h;
 app.config.globalProperties.$api = api;
+app.config.globalProperties.$rules = rules;
 
+// 自定义标签
 for (let el of directives) {
   const { name, func } = el;
   app.directive(name, func);

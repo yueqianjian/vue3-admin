@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import { getUserList, eidtUser, uploadFile } from "@/api/user";
 export default {
   data() {
     return {
