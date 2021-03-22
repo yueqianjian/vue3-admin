@@ -9,8 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.32",
-    "js-md5": "^0.7.3",
-    "mockjs": "^1.1.0",
+    "qs": "^6.10.1",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
@@ -24,7 +23,6 @@
     "eslint-plugin-vue": "^7.6.0",
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
-    "vite": "^2.0.0",
-    "vite-plugin-mock": "^2.1.4"
+    "vite": "^2.0.0"
   }
 }

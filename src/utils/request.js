@@ -4,7 +4,7 @@ import store from "../store/index";
 import { ElMessage, ElLoading } from "element-plus";
 import qs from "qs";
 import { SUCCESS_CODE, BASE_URL, TIME_OUT, LOADING_TIME } from "../config";
-import { isFormData } from "../utils/tools";
+import { isFormData, setS } from "../utils/tools";
 
 // 请求loading
 let loading = null;
@@ -59,8 +59,8 @@ const errorHandle = (status, other) => {
     // 清除token并跳转登录页
     case 403:
       tip("登录过期，请重新登录");
-      localStorage.removeItem("token");
-      store.commit("loginSuccess", null);
+      setS("token", "");
+      store.commit("user/setData", { k: "token", v: "" });
       setTimeout(() => {
         toLogin();
       }, 1000);
@@ -95,7 +95,7 @@ const instance = axios.create(options);
 // 请求拦截器
 instance.interceptors.request.use(
   (config) => {
-    const token = store.state.token;
+    const token = store.state.user.token;
     if (token) {
       config.headers.Authorization = token;
     }

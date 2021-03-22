@@ -1,5 +1,6 @@
 <template>
   <div class="home fc2" id="home">
+    <p>{{ $store.state }}</p>
     <p class="fc2" v-fs="32">homehomehomehomehome</p>
     <div class="txt fc5">txt</div>
     <slotDemo>
@@ -18,11 +19,12 @@
 <script setup>
 import slotDemo from "@/components/slotDemo.vue";
 import render from "@/components/render.vue";
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref, onMounted, getCurrentInstance } from "vue";
 const state = reactive({ msg: "嘎嘎" });
 const home = ref(null);
+const { ctx } = getCurrentInstance();
 onMounted(() => {
-  console.log("home", home.value);
+  console.log("home", getCurrentInstance());
 });
 </script>
 

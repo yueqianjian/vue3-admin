@@ -1,8 +1,14 @@
+import { getS } from "@/utils/tools";
 const state = () => ({
-  count: "ssss",
+  token: getS("token"),
+  role: getS("role"),
 });
 
-const mutations = {};
+const mutations = {
+  setData(state, { k, v }) {
+    state[k] = v;
+  },
+};
 
 const actions = {};
 

@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     count() {
-      return this.$store.state.user.count;
+      return this.$store.state.role;
     },
   },
   provide() {
