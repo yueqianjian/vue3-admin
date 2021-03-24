@@ -1,5 +1,5 @@
 import axios from "axios";
-import router from "../routers";
+import { router } from "../routers";
 import store from "../store/index";
 import { ElMessage, ElLoading } from "element-plus";
 import qs from "qs";
@@ -38,7 +38,7 @@ const toLogin = () => {
   router.replace({
     path: "/login",
     query: {
-      redirect: router.currentRoute.fullPath,
+      redirect: router.currentRoute.value.fullPath,
     },
   });
 };
@@ -59,8 +59,7 @@ const errorHandle = (status, other) => {
     // 清除token并跳转登录页
     case 403:
       tip("登录过期，请重新登录");
-      setS("token", "");
-      store.commit("user/setData", { k: "token", v: "" });
+      store.commit("user/clearUser");
       setTimeout(() => {
         toLogin();
       }, 1000);

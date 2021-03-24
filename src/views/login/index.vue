@@ -15,7 +15,7 @@
         </el-form-item>
       </el-form>
       <el-button class="login-btn" @click="login">
-        <span class="white">登陆</span>
+        <span class="white">登录</span>
       </el-button>
       <el-radio-group @change="changeRole" v-model="role" v-pm:m="`20px 0 0`">
         <el-radio v-for="(item, index) in roleList" :key="index" :label="index">
@@ -25,9 +25,12 @@
     </div>
   </div>
 </template>
-
 <script>
 import { setS } from "@/utils/tools";
+import { initRouter } from "@/routers/index";
+import adminRoutes from "@/routers/admin";
+import guestRoutes from "@/routers/guest";
+
 export default {
   data() {
     return {
@@ -51,28 +54,35 @@ export default {
       ],
     };
   },
+  computed: {
+    redirect() {
+      return this.$route.query.redirect || "/home";
+    },
+  },
   created() {
     this.changeRole();
   },
   methods: {
     login() {
-      const { role } = this.form;
-      setS("role", role);
-      this.$store.commit("user/setData", {
-        k: "role",
-        v: role,
-      });
-      setS("token", role);
-      this.$store.commit("user/setData", {
-        k: "token",
-        v: role,
-      });
-      // this.$router.push("/home");
-      this.$router.replace({
-        path: "/home",
-        query: {
-          redirect: this.$router.currentRoute.fullPath,
-        },
+      // 表单验证成功进行登录
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          // 登录成功设置token 和 role
+          const { role } = this.form;
+          setS("role", role);
+          this.$store.commit("user/setData", {
+            k: "role",
+            v: role,
+          });
+          setS("token", role);
+          this.$store.commit("user/setData", {
+            k: "token",
+            v: role,
+          });
+          // 根据role进行动态增加路由
+          initRouter();
+          this.$router.push(this.redirect);
+        }
       });
     },
     changeRole(e = 0) {

@@ -1,4 +1,4 @@
-import { getS } from "@/utils/tools";
+import { getS, setS } from "@/utils/tools";
 const state = () => ({
   token: getS("token"),
   role: getS("role"),
@@ -7,6 +7,12 @@ const state = () => ({
 const mutations = {
   setData(state, { k, v }) {
     state[k] = v;
+  },
+  clearUser(state) {
+    state.token = "";
+    state.role = "";
+    setS("role", "");
+    setS("token", "");
   },
 };
 

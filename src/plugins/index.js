@@ -19,12 +19,11 @@ const plugins = {
       const { name, func } = el;
       app.directive(name, func);
     }
-    console.log("app", app, options);
     app.provide("user", "options");
     app.provide("user2", "options2");
     app.mixin({
       created() {
-        console.log("~~~~~~");
+        // console.log("~~~~~~");
       },
     });
   },
