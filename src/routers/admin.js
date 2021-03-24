@@ -4,7 +4,7 @@ const routes = [
     path: "/admin",
     redirect: "/admin/index",
     component: Layout,
-    meta: { title: "导航", icon: "el-icon-s-home" },
+    meta: { title: "Admin" },
     children: [
       {
         path: "index",

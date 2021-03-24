@@ -4,7 +4,7 @@ const routes = [
     path: "/guest",
     redirect: "/guest/index",
     component: Layout,
-    meta: { title: "导航", icon: "el-icon-s-home" },
+    meta: { title: "Guest" },
     children: [
       {
         path: "index",
