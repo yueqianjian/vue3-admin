@@ -1,6 +1,6 @@
 <template>
   <div class="sudoku x">
-    <div class="flex1 y aie">
+    <div class="flex1 y aie" v-pm="`0 30px 0`">
       <h2>数独答案</h2>
       <div class="grid">
         <div v-for="x in size ** 2" :key="x" :class="{ xline: !(x % size) }">
@@ -21,7 +21,7 @@
         <el-button @click="resetSDMap(`SDMap`)">重置</el-button>
       </div>
     </div>
-    <div class="flex1">
+    <div class="flex1" v-pm="`0 30px 0`">
       <div class="nemu">
         <div>
           <h2>填充初始单元</h2>
@@ -275,7 +275,6 @@ $bdc: #409eff;
     }
   }
   .nemu {
-    padding-left: 50px;
     width: 500px;
     .grid {
       .cell {
