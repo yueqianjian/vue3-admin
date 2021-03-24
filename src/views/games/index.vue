@@ -29,7 +29,7 @@ export default {
       gameList: [
         {
           id: "sudoku",
-          name: "数独",
+          name: "数独生成器",
         },
       ],
     };
@@ -53,7 +53,7 @@ export default {
   .gameMenu {
     width: fit-content;
     .cell {
-      width: 70px;
+      width: 80px;
     }
   }
 }
