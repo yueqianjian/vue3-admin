@@ -1,6 +1,7 @@
 <template>
   <div class="sudoku x">
     <div class="flex1 y aie">
+      <h2>数独答案</h2>
       <div class="grid">
         <div v-for="x in size ** 2" :key="x" :class="{ xline: !(x % size) }">
           <div v-for="y in size ** 2" :key="y" :class="{ yline: !(y % size) }">
@@ -277,19 +278,12 @@ $bdc: #409eff;
     padding-left: 50px;
     width: 500px;
     .grid {
-      // border: 1px solid $bdc;
-      // .xline,
-      // .yline {
-      //   border: none;
-      // }
       .cell {
-        width: 30px;
-        height: 30px;
         .cellInput {
           text-align: center;
           border: none;
-          width: 30px;
-          height: 30px;
+          width: 100%;
+          height: 100%;
         }
       }
     }
