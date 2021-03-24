@@ -1,7 +1,35 @@
 <template>
-  <div class="y1 aic" v-pm="`20px`">
-    <input type="file" @change="getFile" />
-    <el-button @click="testApi">测试接口</el-button>
+  <div>
+    <h2>
+      该项目本身不提供后端服务，以下项目为node.js的Koa框架的后端服务，该页面仅为实现Get,Post请求,文件上传接口测试
+    </h2>
+    <p>tip:没必要也没钱去购买云服务器，只能酱紫了</p>
+    <p v-pm:m="`40px 0 0`">
+      <span class="title">项目地址：</span>
+      <a :href="gitUrl">{{ gitUrl }}</a>
+    </p>
+    <div v-pm:m="`20px 0 0`">
+      <p>
+        <span class="title">GET</span>
+        <el-button size="small" @click="getUserList">测试接口</el-button>
+      </p>
+      <p>{{ getRes }}</p>
+    </div>
+    <div v-pm:m="`20px 0 0`">
+      <p>
+        <span class="title">POST</span>
+        <el-button size="small" @click="eidtUser">测试接口</el-button>
+      </p>
+      <p>{{ postRes }}</p>
+    </div>
+    <div v-pm:m="`20px 0 0`">
+      <p>
+        <span class="title">UPLOAD</span>
+        <input type="file" @change="getFile" />
+        <el-button size="small" @click="uploadFile">测试接口</el-button>
+      </p>
+      <p>{{ uploadRes }}</p>
+    </div>
   </div>
 </template>
 
@@ -9,7 +37,11 @@
 export default {
   data() {
     return {
+      gitUrl: `https://github.com/yueqianjian/koa-server`,
       vfile: "",
+      getRes: "",
+      postRes: "",
+      uploadRes: "",
     };
   },
   methods: {
@@ -22,7 +54,7 @@ export default {
     async getUserList() {
       const { getUserList } = this.$api.user;
       const res = await getUserList();
-      console.log("res", res);
+      this.getRes = res;
     },
     async uploadFile() {
       const { uploadFile } = this.$api.user;
@@ -30,12 +62,10 @@ export default {
       formData.append("username", "Groucho");
       formData.append("accountnum", 123456);
       formData.append("file", this.vfile);
-      console.log("formData", formData);
       let query = formData;
       const res = await uploadFile(query);
-      console.log("res", res);
+      this.uploadRes = res;
     },
-
     async eidtUser() {
       const { eidtUser } = this.$api.user;
       let query = {
@@ -45,8 +75,14 @@ export default {
         },
       };
       const res = await eidtUser(query);
-      console.log("res", res);
+      this.postRes = res;
     },
   },
 };
 </script>
+<style lang="scss" scoped>
+.title {
+  width: 80px;
+  display: inline-block;
+}
+</style>

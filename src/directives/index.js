@@ -29,6 +29,26 @@ const directives = [
       };
     },
   },
+  {
+    name: "border",
+    func(el, binding) {
+      // border color
+      const borderColorList = [`#DCDFE6`, `#E4E7ED`, `#EBEEF5`, `#F2F6FC`];
+      const { arg, value } = binding;
+      let colorIndex = value || 0;
+      let directionObj = {
+        t: "top",
+        r: "right",
+        b: "bottom",
+        l: "left",
+      };
+      let styleName = "border";
+      if (arg) {
+        styleName += `-${directionObj[arg]}`;
+      }
+      el.style[styleName] = `1px solid ${borderColorList[colorIndex]}`;
+    },
+  },
 ];
 
 export default directives;

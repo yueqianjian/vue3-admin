@@ -29,13 +29,13 @@ const mainRoutes = [
   },
   {
     path: "/games",
-    redirect: "/games/sudoku",
+    redirect: "/games/index",
     meta: { title: "游戏" },
     component: Layout,
     children: [
       {
-        path: "sudoku",
-        component: () => import("@/views/games/sudoku/index.vue"),
+        path: "index",
+        component: () => import("@/views/games/index.vue"),
       },
     ],
   },
