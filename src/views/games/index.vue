@@ -53,7 +53,7 @@ export default {
   .gameMenu {
     width: fit-content;
     .cell {
-      width: 80px;
+      padding: 0 30px;
     }
   }
 }

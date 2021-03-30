@@ -2,7 +2,7 @@ import axios from "axios";
 import { router } from "../routers";
 import store from "../store/index";
 import { ElMessage, ElLoading } from "element-plus";
-import qs from "qs";
+// import qs from "qs";
 import { SUCCESS_CODE, BASE_URL, TIME_OUT, LOADING_TIME } from "../config";
 import { isFormData, setS } from "../utils/tools";
 

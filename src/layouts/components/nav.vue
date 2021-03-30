@@ -42,7 +42,7 @@ export default {
 .nav {
   height: 30px;
   .cell {
-    width: 80px;
+    padding: 0 30px;
   }
 }
 </style>
