@@ -1,4 +1,4 @@
-import store from "@/store/index";
+import { ROUTE_WHITE_LIST } from "@/config.js";
 /**
  * @description: 数组求交集
  * @param {Array} list1
@@ -51,4 +51,18 @@ export function setS(k, v) {
   v = JSON.stringify(v);
   localStorage.setItem(k, v);
   return v;
+}
+
+/**
+ * @description: 判断是否在路由白名单
+ * @param {String} str
+ * @return {Boolean} isIn
+ */
+export function inRouteWhiteList(str) {
+  let isIn = false;
+  ROUTE_WHITE_LIST.forEach((e) => {
+    let reg = RegExp(e);
+    isIn = reg.test(str);
+  });
+  return isIn;
 }

@@ -12,4 +12,7 @@ const BASE_URL = location.hostname == "localhost" ? DEV_URL : PROD_URL;
 // 请求Loading时间，请求时间小于该时间，则loading不显示
 const LOADING_TIME = 100;
 
-export { BASE_URL, SUCCESS_CODE, TIME_OUT, LOADING_TIME };
+// 路由守卫白名单
+const ROUTE_WHITE_LIST = ["/login"];
+
+export { BASE_URL, SUCCESS_CODE, TIME_OUT, LOADING_TIME, ROUTE_WHITE_LIST };

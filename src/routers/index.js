@@ -1,4 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import { inRouteWhiteList } from "@/utils/tools";
+import store from "../store/index";
 import Layout from "@/layouts/index.vue";
 import adminRoutes from "./admin";
 import guestRoutes from "./guest";
@@ -85,3 +87,18 @@ export const initRouter = () => {
 };
 
 export const router = initRouter();
+
+router.beforeEach((to, from, next) => {
+  let toPath = to.path;
+  if (inRouteWhiteList(toPath)) {
+    next();
+    return;
+  }
+  const token = store.state.user.token;
+  if (token) {
+    next();
+  } else {
+    // 未登录返回登陆页
+    next("/login");
+  }
+});
